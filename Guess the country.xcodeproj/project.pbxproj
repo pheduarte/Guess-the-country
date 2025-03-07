@@ -23,10 +23,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		044FD1382D79640D00D346DF /* Guess de country */ = {
+		04DD308C2D7ACCC60024A252 /* Guess the country */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Guess de country";
-			sourceTree = "<group>";
+			path = "Guess the country";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -44,7 +44,7 @@
 		044FD12D2D79640D00D346DF = {
 			isa = PBXGroup;
 			children = (
-				044FD1382D79640D00D346DF /* Guess de country */,
+				04DD308C2D7ACCC60024A252 /* Guess the country */,
 				044FD1372D79640D00D346DF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +73,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				044FD1382D79640D00D346DF /* Guess de country */,
+				04DD308C2D7ACCC60024A252 /* Guess the country */,
 			);
 			name = "Guess de country";
 			packageProductDependencies = (
@@ -96,7 +96,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 044FD1312D79640D00D346DF /* Build configuration list for PBXProject "Guess de country" */;
+			buildConfigurationList = 044FD1312D79640D00D346DF /* Build configuration list for PBXProject "Guess the country" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -260,7 +260,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		044FD1312D79640D00D346DF /* Build configuration list for PBXProject "Guess de country" */ = {
+		044FD1312D79640D00D346DF /* Build configuration list for PBXProject "Guess the country" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				044FD13B2D79640D00D346DF /* Debug */,
