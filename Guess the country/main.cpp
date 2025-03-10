@@ -9,7 +9,10 @@
 #import "guess.h"
 
 int main(int argc, const char * argv[]) {
-    int choice;
+    int choice = 6;
+    bool cont = true;
+    int tes;
+    srand(time(0));
     
     //creating the objects
         Game argentina("argentina", "buenos aires", "south america");
@@ -17,11 +20,11 @@ int main(int argc, const char * argv[]) {
         Game austria("austria", "vienna", "europe");
         Game bangladesh("bangladesh", "dhaka", "asia");
         Game belgium("belgium", "brussels", "europe");
-        Game brazil("brazil", "brasília", "south america");
+        Game brazil("brazil", "brasilia", "south america");
         Game canada("canada", "ottawa", "north america");
         Game chile("chile", "santiago", "south america");
         Game china("china", "beijing", "asia");
-        Game colombia("colombia", "bogotá", "south america");
+        Game colombia("colombia", "bogota", "south america");
         Game czech_republic("czech republic", "prague", "europe");
         Game denmark("denmark", "copenhagen", "europe");
         Game egypt("egypt", "cairo", "africa");
@@ -62,9 +65,9 @@ int main(int argc, const char * argv[]) {
         Game united_kingdom("united kingdom", "london", "europe");
         Game united_states("united states", "washington, d.c.", "north america");
         Game vietnam("vietnam", "hanoi", "asia");
+    
         Game ghost(" ", " ", " "); // object created to initialise methods of Game
-    Game novo1("a", "b", "c");
-    Game novo2("e", "f", "g");
+    
     
     //stores countries in a object array
     Game countries[50] = {
@@ -75,18 +78,56 @@ int main(int argc, const char * argv[]) {
         south_korea, spain, sweden, switzerland, thailand, turkey, ukraine, united_kingdom, united_states, vietnam
         };
     
-    
-   
-    
-    ghost.learn(countries, 50);
+    //welcome message to user
+    cout << "Welcome " << endl;
     
     
-//    ghost.showMenu();
-//    
-//    choice = ghost.menuChoice();
-    
-    
-    
+    while (choice != 3) {
+        choice = ghost.showMenu();
+        
+        
+        switch (choice) {
+            case 1:
+                cont = true;
+                while (cont == true) {
+                    
+                    ghost.learn(countries, 50);
+                    
+                    cont = ghost.playAgain();
+                }
+                break;
+                
+            case 2:
+                cont = true;
+                while (cont == true) {
+                   
+                    tes = ghost.guess(countries);
+                    string name;
+                                        
+                    getline(cin, name);
+                        
+                    transform(name.begin(), name.end(), name.begin(), ::tolower);
+                    
+                    if (name == countries[tes].capital) {
+                        cout << "Correct!" << endl;
+                    } else {
+                        cout << "Oops! The correct answer is: " << countries[tes].capital << endl;
+                    }
+                    
+                    cont = ghost.playAgain();
+                }
+                break;
+            
+            case 3:
+                break;
+                
+            default: //when user enter an invalid number it circles back to menu with a message
+                cout << "Select a valid option!" << endl;
+                cout << " " << endl;
+                choice = ghost.showMenu();
+                break;
+        }
+    }
     
     return 0;
 }

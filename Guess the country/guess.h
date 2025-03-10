@@ -8,6 +8,9 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
 
 class Game {
@@ -18,10 +21,10 @@ public:
     string continent;
     
     Game(string cou, string cap, string cont);
-    void showMenu();
-    int menuChoice();
+    int showMenu();
     void learn(Game c[], int n);
-    void guess(Game c[], int n);
+    int guess(Game c[]);
+    bool playAgain();
     
 };
 
