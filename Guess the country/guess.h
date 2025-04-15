@@ -14,18 +14,30 @@
 using namespace std;
 
 class Game {
-public:
+protected:
+    string player;
+    int score;
     
+public:
     string country;
     string capital;
     string continent;
     
+    Game();
     Game(string cou, string cap, string cont);
     int showMenu();
     void learn(Game c[], int n);
-    int guess(Game c[]);
+    void guess(Game c[], int n);
+    int randNum();
     bool playAgain();
-    
 };
 
+class Player : public Game {
+public:
+    Player(string name, int score);
+    string getPlayer();
+    int getScore();
+    void getPoints();
+};
 
+string playerName();
