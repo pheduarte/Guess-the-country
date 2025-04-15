@@ -9,9 +9,12 @@
 #import "guess.h"
 
 int main(int argc, const char * argv[]) {
-    int choice = 6;
+    int randNum;
+    int points = 0;
     bool cont = true;
-    int tes;
+    string names;
+    int choice = 6;
+    
     srand(time(0));
     
     //creating the objects
@@ -69,6 +72,8 @@ int main(int argc, const char * argv[]) {
         Game ghost(" ", " ", " "); // object created to initialise methods of Game
     
     
+    
+    
     //stores countries in a object array
     Game countries[50] = {
         argentina, australia, austria, bangladesh, belgium, brazil, canada, chile, china, colombia,
@@ -81,11 +86,14 @@ int main(int argc, const char * argv[]) {
     //welcome message to user
     cout << "Welcome " << endl;
     
+    //prompts user to enter their name
+    names = playerName();
+    Player newPlayer(names, points); //creates the object player
     
+    //loop for the menu
     while (choice != 3) {
         choice = ghost.showMenu();
-        
-        
+                
         switch (choice) {
             case 1:
                 cont = true;
@@ -100,18 +108,21 @@ int main(int argc, const char * argv[]) {
             case 2:
                 cont = true;
                 while (cont == true) {
-                   
-                    tes = ghost.guess(countries);
+                    randNum = ghost.randNum();
+                    ghost.guess(countries, randNum);
                     string name;
                                         
                     getline(cin, name);
                         
                     transform(name.begin(), name.end(), name.begin(), ::tolower);
                     
-                    if (name == countries[tes].capital) {
+                    if (name == countries[randNum].capital) {
                         cout << "Correct!" << endl;
+                        newPlayer.getPoints();
+                        cout << names << " has " << newPlayer.getScore() << " points." << endl;
+                        
                     } else {
-                        cout << "Oops! The correct answer is: " << countries[tes].capital << endl;
+                        cout << "Oops! The correct answer is: " << countries[randNum].capital << endl;
                     }
                     
                     cont = ghost.playAgain();
